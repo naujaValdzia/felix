@@ -1,0 +1,23 @@
+<h5>Compilation errors occured while generating XREF files in this system.
+    <br>These are the files that generated errors:</h5>
+    <br>                   
+    <div class="card">
+    <div class="table-responsive">
+        <table class="table-bordered table-striped errors-list">
+    
+    <thead>
+        <th>#</th>
+        <th>File location</th>
+        <th>Error message</th>
+    </thead>
+
+    {{#response.dsError.dsError.ttError}}
+        <tr>
+            <td>{{math @index "+" 1}}</td>
+            <td>{{filePath}}</td>
+            <td>{{errorMessage}}</td>
+        </tr>
+    {{/response.dsError.dsError.ttError}}
+ </table>
+ </div>
+ </div>

@@ -1,0 +1,654 @@
+{
+    "version": "1.5",
+    "lastModified": "Wed Oct 10 08:37:36 EEST 2018",
+    "services": [{
+        "name": "system",
+        "address": "\/web\/pdo\/system",
+        "useRequest": true,
+        "resources": [
+            {
+                "name": "FileController",
+                "path": "\/file",
+                "autoSave": true,
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"dsFile": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {"ttFile": {
+                            "type": "array",
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "_errorString": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "fileNum": {
+                                        "type": "integer",
+                                        "ablType": "INTEGER",
+                                        "default": 0,
+                                        "title": "fileNum"
+                                    },
+                                    "fileName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "fileName"
+                                    },
+                                    "sourceName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "sourceName"
+                                    },
+                                    "sourcePath": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "sourcePath"
+                                    },
+                                    "line": {
+                                        "type": "integer",
+                                        "ablType": "INTEGER",
+                                        "default": 0,
+                                        "title": "line"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "type"
+                                    },
+                                    "info": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "info"
+                                    },
+                                    "compileUnit": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "compileUnit"
+                                    },
+                                    "systemName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemName"
+                                    }
+                                }
+                            }
+                        }}
+                    }}
+                },
+                "operations": [
+                    {
+                        "name": "getUsedByBranch",
+                        "path": "\/getUsedByBranch",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcFileName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsTree",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getIsUsingBranch",
+                        "path": "\/getIsUsingBranch",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcFileName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsTree",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getFileDetail",
+                        "path": "\/getFileDetail",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcCompileUnit",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcType",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcFileName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsFileDetailDto",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getFile",
+                        "path": "\/getFile",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcFileName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcType",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsFileDto",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "SystemController",
+                "path": "\/info",
+                "autoSave": true,
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"dsSystem": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {"ttSystem": {
+                            "type": "array",
+                            "primaryKey": ["id"],
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "_errorString": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "systemName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemName"
+                                    },
+                                    "localSourcePath": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "localSourcePath"
+                                    },
+                                    "systemPropath": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemPropath"
+                                    },
+                                    "systemDBparameters": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemDBparameters"
+                                    },
+                                    "entryPoints": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "entryPoints"
+                                    },
+                                    "hasErrors": {
+                                        "type": "boolean",
+                                        "ablType": "LOGICAL",
+                                        "default": false,
+                                        "title": "hasErrors"
+                                    },
+                                    "id": {
+                                        "type": "integer",
+                                        "ablType": "INT64",
+                                        "default": 0,
+                                        "title": "id"
+                                    }
+                                }
+                            }
+                        }}
+                    }}
+                },
+                "operations": [
+                    {
+                        "name": "list",
+                        "path": "\/list",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [{
+                            "name": "dsSystem",
+                            "type": "RESPONSE_BODY"
+                        }]
+                    },
+                    {
+                        "name": "details",
+                        "path": "\/details",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsSystem",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "create",
+                        "path": "\/create",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "dsSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "vSuccess",
+                                "type": "RESPONSE_BODY"
+                            },
+                            {
+                                "name": "vMessage",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "delete",
+                        "path": "\/delete",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "vSuccess",
+                                "type": "RESPONSE_BODY"
+                            },
+                            {
+                                "name": "vMessage",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "update",
+                        "path": "\/update",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "dsSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "vSuccess",
+                                "type": "RESPONSE_BODY"
+                            },
+                            {
+                                "name": "vMessage",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "UnusedController",
+                "path": "\/unused",
+                "autoSave": true,
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"dsUnused": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {"ttUnused": {
+                            "type": "array",
+                            "primaryKey": ["id"],
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "_errorString": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "fileName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "fileName"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "type"
+                                    },
+                                    "compileUnit": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "compileUnit"
+                                    },
+                                    "systemName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemName"
+                                    },
+                                    "info": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "info"
+                                    },
+                                    "id": {
+                                        "type": "integer",
+                                        "ablType": "INT64",
+                                        "default": 0,
+                                        "title": "id"
+                                    }
+                                }
+                            }
+                        }}
+                    }}
+                },
+                "operations": [{
+                    "name": "getUnused",
+                    "path": "\/getUnused",
+                    "useBeforeImage": true,
+                    "type": "invoke",
+                    "verb": "put",
+                    "params": [
+                        {
+                            "name": "pcSystem",
+                            "type": "REQUEST_BODY"
+                        },
+                        {
+                            "name": "pcType",
+                            "type": "REQUEST_BODY"
+                        },
+                        {
+                            "name": "dsUnused",
+                            "type": "RESPONSE_BODY"
+                        }
+                    ]
+                }]
+            },
+            {
+                "name": "DbFieldController",
+                "path": "\/dbField",
+                "autoSave": true,
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"dsDbField": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {"ttDbField": {
+                            "type": "array",
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "_errorString": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "fieldNum": {
+                                        "type": "integer",
+                                        "ablType": "INTEGER",
+                                        "default": 0,
+                                        "title": "fieldNum"
+                                    },
+                                    "sourceName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "sourceName"
+                                    },
+                                    "sourcePath": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "sourcePath"
+                                    },
+                                    "line": {
+                                        "type": "integer",
+                                        "ablType": "INTEGER",
+                                        "default": 0,
+                                        "title": "line"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "type"
+                                    },
+                                    "info": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "info"
+                                    },
+                                    "compileUnit": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "compileUnit"
+                                    },
+                                    "systemName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemName"
+                                    },
+                                    "fileName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "fileName"
+                                    }
+                                }
+                            }
+                        }}
+                    }}
+                },
+                "operations": [
+                    {
+                        "name": "getDbFieldDetail",
+                        "path": "\/getDbFieldDetail",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcCompileUnit",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcDbFieldName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcType",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsDbFieldDetailDto",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getDbField",
+                        "path": "\/getDbField",
+                        "useBeforeImage": true,
+                        "type": "invoke",
+                        "verb": "put",
+                        "params": [
+                            {
+                                "name": "pcSystem",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcDbFieldName",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "pcType",
+                                "type": "REQUEST_BODY"
+                            },
+                            {
+                                "name": "dsDbFieldDto",
+                                "type": "RESPONSE_BODY"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "ErrorController",
+                "path": "\/error",
+                "autoSave": true,
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {"dsError": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {"ttError": {
+                            "type": "array",
+                            "primaryKey": ["id"],
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "_id": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "_errorString": {
+                                        "type": "string",
+                                        "semanticType": "Internal"
+                                    },
+                                    "filePath": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "filePath"
+                                    },
+                                    "systemName": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "systemName"
+                                    },
+                                    "errorMessage": {
+                                        "type": "string",
+                                        "ablType": "CHARACTER",
+                                        "default": "",
+                                        "title": "errorMessage"
+                                    },
+                                    "id": {
+                                        "type": "integer",
+                                        "ablType": "INT64",
+                                        "default": 0,
+                                        "title": "id"
+                                    }
+                                }
+                            }
+                        }}
+                    }}
+                },
+                "operations": [{
+                    "name": "getError",
+                    "path": "\/getError",
+                    "useBeforeImage": true,
+                    "type": "invoke",
+                    "verb": "put",
+                    "params": [
+                        {
+                            "name": "systemName",
+                            "type": "REQUEST_BODY"
+                        },
+                        {
+                            "name": "dsError",
+                            "type": "RESPONSE_BODY"
+                        }
+                    ]
+                }]
+            }
+        ]
+    }]
+}

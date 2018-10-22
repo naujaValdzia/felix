@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="felix" default="main" basedir=".">
+	
+	<property name="dlc.dir" value="/usr/dlc" />
+	<property name="dlc.java.dir" value="${dlc.dir}/java" />
+	<property name="src.dir" value="${dlc.dir}/servers/pasoe/felix/dev/felix_API" />
+	<property name="dest.dir" value="${dlc.dir}/servers/pasoe/felix/dev/felix_shared/config" />
+    
+    <!-- Target for defining 'taskdef' -->
+    <target name="taskdef">
+    	<echo>Task Definitions</echo>
+    	
+        <taskdef resource="com/progress/openedge/pdt/ant/ablwebapp/ablwebapps.properties">
+            <classpath>
+            	<pathelement location="${dlc.java.dir}/ant-ablwebapp.jar" />
+				
+				<!-- ABLWebApp Dependencies -->
+            	<pathelement location="${dlc.java.dir}/ant-libs/ablwebapp.jar" />
+            	<pathelement location="${dlc.java.dir}/ant-libs/ablwebapp-dependencies.jar" />
+            	
+            	<!-- CodeModel Dependencies -->
+            	<pathelement location="${dlc.java.dir}/ant-libs/codemodel-dependencies.jar" />
+            	
+            	<!-- AST and its Dependencies -->
+            	<pathelement location="${dlc.java.dir}/ant-libs/ast.jar" />
+            	<pathelement location="${dlc.java.dir}/ant-libs/ast-dependencies.jar" />
+            	
+            	<!-- Additional deps -->
+            	<pathelement location="${dlc.java.dir}/ant-libs/velocity-1.7.jar" />
+            	<pathelement location="${dlc.java.dir}/ant-libs/velocity-1.7-dep.jar" />
+            	<pathelement location="${dlc.java.dir}/ant-libs/1padapters-restExpose.jar" />
+            	<pathelement location="${dlc.java.dir}/1padapters-idl.jar" />
+            	<pathelement location="${dlc.java.dir}/ext/jettison-1.2.jar" />
+        	</classpath>
+        </taskdef>
+    </target>
+
+	<!-- Main task -->
+	<target name="main" depends="taskdef">
+		<ABLWebAppPackage srcdir="${src.dir}" dlc="${dlc.dir}" verbose="false" 
+			isIncremental="false" webAppName="felix" destdir="${dest.dir}" />
+	</target>
+	
+</project>

@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="table-responsive">
+        <table class="table-bordered table-striped">
+    <thead>
+        <th>Source Path</th><th>File Name</th><th>Type</th><th>Line</th><th>Info</th>
+    </thead>
+    {{#response.dsFileDetailDto.dsFileDetailDto.ttFileDetailDto}}
+    <tr>
+        <td>{{sourcePath}}</td>
+        <td>{{fileName}}</td>
+        <td>{{type}}</td>
+        <td>{{line}}</td>
+        <td>{{info}}</td>
+    </tr>
+    {{/response.dsFileDetailDto.dsFileDetailDto.ttFileDetailDto}}
+</table>
+</div>
+</div>

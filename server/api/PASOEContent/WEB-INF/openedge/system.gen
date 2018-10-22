@@ -1,0 +1,820 @@
+{"services": {"system": {
+    "version": "1.0.0",
+    "operations": {
+        "\/": {"GET": {
+            "contentType": "application\/json",
+            "statusCode": 200,
+            "file": "$CATALINA_BASE\/webapps\/$oepas-webapp\/static\/system.json"
+        }},
+        "\/file": {},
+        "\/file\/getUsedByBranch": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.FileController",
+                "function": "getUsedByBranch",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcFileName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcFileName"
+                        }
+                    },
+                    {
+                        "ablName": "dsTree",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsTree"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/file\/getIsUsingBranch": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.FileController",
+                "function": "getIsUsingBranch",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcFileName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcFileName"
+                        }
+                    },
+                    {
+                        "ablName": "dsTree",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsTree"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/file\/getFileDetail": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.FileController",
+                "function": "getFileDetail",
+                "arg": [
+                    {
+                        "ablName": "pcCompileUnit",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcCompileUnit"
+                        }
+                    },
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcType",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcType"
+                        }
+                    },
+                    {
+                        "ablName": "pcFileName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcFileName"
+                        }
+                    },
+                    {
+                        "ablName": "dsFileDetailDto",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsFileDetailDto"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/file\/getFile": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.FileController",
+                "function": "getFile",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcFileName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcFileName"
+                        }
+                    },
+                    {
+                        "ablName": "pcType",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcType"
+                        }
+                    },
+                    {
+                        "ablName": "dsFileDto",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsFileDto"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/info": {},
+        "\/info\/list": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.SystemController",
+                "function": "systemList",
+                "arg": [{
+                    "ablName": "dsSystem",
+                    "ablType": "DATASET",
+                    "ioMode": "OUTPUT",
+                    "msgElem": {
+                        "type": "field",
+                        "name": "dsSystem"
+                    }
+                }]
+            }
+        }},
+        "\/info\/details": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.SystemController",
+                "function": "systemInfo",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "dsSystem",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsSystem"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/info\/create": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.SystemController",
+                "function": "CreateSystem",
+                "arg": [
+                    {
+                        "ablName": "dsSystem",
+                        "ablType": "DATASET",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsSystem"
+                        }
+                    },
+                    {
+                        "ablName": "vSuccess",
+                        "ablType": "LOGICAL",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vSuccess"
+                        }
+                    },
+                    {
+                        "ablName": "vMessage",
+                        "ablType": "CHARACTER",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vMessage"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/info\/delete": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.SystemController",
+                "function": "DeleteSystem",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "vSuccess",
+                        "ablType": "LOGICAL",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vSuccess"
+                        }
+                    },
+                    {
+                        "ablName": "vMessage",
+                        "ablType": "CHARACTER",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vMessage"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/info\/update": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.SystemController",
+                "function": "UpdateSystem",
+                "arg": [
+                    {
+                        "ablName": "dsSystem",
+                        "ablType": "DATASET",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsSystem"
+                        }
+                    },
+                    {
+                        "ablName": "vSuccess",
+                        "ablType": "LOGICAL",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vSuccess"
+                        }
+                    },
+                    {
+                        "ablName": "vMessage",
+                        "ablType": "CHARACTER",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "vMessage"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/unused": {},
+        "\/unused\/getUnused": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.UnusedController",
+                "function": "getUnused",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcType",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcType"
+                        }
+                    },
+                    {
+                        "ablName": "dsUnused",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsUnused"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/dbField": {},
+        "\/dbField\/getDbFieldDetail": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.DbFieldController",
+                "function": "getDbFieldDetail",
+                "arg": [
+                    {
+                        "ablName": "pcCompileUnit",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcCompileUnit"
+                        }
+                    },
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcDbFieldName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcDbFieldName"
+                        }
+                    },
+                    {
+                        "ablName": "pcType",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcType"
+                        }
+                    },
+                    {
+                        "ablName": "dsDbFieldDetailDto",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsDbFieldDetailDto"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/dbField\/getDbField": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.DbFieldController",
+                "function": "getDbField",
+                "arg": [
+                    {
+                        "ablName": "pcSystem",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcSystem"
+                        }
+                    },
+                    {
+                        "ablName": "pcDbFieldName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcDbFieldName"
+                        }
+                    },
+                    {
+                        "ablName": "pcType",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "pcType"
+                        }
+                    },
+                    {
+                        "ablName": "dsDbFieldDto",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsDbFieldDto"
+                        }
+                    }
+                ]
+            }
+        }},
+        "\/error": {},
+        "\/error\/getError": {"PUT": {
+            "contentType": "application\/json",
+            "options": {
+                "writeBI": true,
+                "requestEnvelope": true,
+                "responseEnvelope": true
+            },
+            "entity": {
+                "name": "system.ErrorController",
+                "function": "getError",
+                "arg": [
+                    {
+                        "ablName": "systemName",
+                        "ablType": "CHARACTER",
+                        "ioMode": "INPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "systemName"
+                        }
+                    },
+                    {
+                        "ablName": "dsError",
+                        "ablType": "DATASET",
+                        "ioMode": "OUTPUT",
+                        "msgElem": {
+                            "type": "field",
+                            "name": "dsError"
+                        }
+                    }
+                ]
+            }
+        }}
+    },
+    "schemas": {
+        "dsFile": {"ttFile": {
+            "trackChanges": false,
+            "indexes": {
+                "systemID": {
+                    "primary": true,
+                    "unique": false,
+                    "word": false,
+                    "fields": ["systemName:asc"]
+                },
+                "typeID": {
+                    "primary": false,
+                    "unique": false,
+                    "word": false,
+                    "fields": ["type:asc"]
+                }
+            },
+            "fields": [
+                {
+                    "name": "fileNum",
+                    "ablType": "INTEGER",
+                    "extent": null
+                },
+                {
+                    "name": "fileName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "sourceName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "sourcePath",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "line",
+                    "ablType": "INTEGER",
+                    "extent": null
+                },
+                {
+                    "name": "type",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "info",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "compileUnit",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                }
+            ]
+        }},
+        "dsSystem": {"ttSystem": {
+            "trackChanges": true,
+            "indexes": {
+                "id": {
+                    "primary": true,
+                    "unique": true,
+                    "word": false,
+                    "fields": ["id:asc"]
+                },
+                "systemName": {
+                    "primary": false,
+                    "unique": true,
+                    "word": false,
+                    "fields": ["systemName:asc"]
+                }
+            },
+            "fields": [
+                {
+                    "name": "systemName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "localSourcePath",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemPropath",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemDBparameters",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "entryPoints",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "hasErrors",
+                    "ablType": "LOGICAL",
+                    "extent": null
+                },
+                {
+                    "name": "id",
+                    "ablType": "INT64",
+                    "extent": null
+                }
+            ]
+        }},
+        "dsUnused": {"ttUnused": {
+            "trackChanges": true,
+            "indexes": {"id": {
+                "primary": true,
+                "unique": true,
+                "word": false,
+                "fields": ["id:asc"]
+            }},
+            "fields": [
+                {
+                    "name": "fileName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "type",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "compileUnit",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "info",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "id",
+                    "ablType": "INT64",
+                    "extent": null
+                }
+            ]
+        }},
+        "dsDbField": {"ttDbField": {
+            "trackChanges": false,
+            "indexes": {
+                "systemID": {
+                    "primary": true,
+                    "unique": false,
+                    "word": false,
+                    "fields": ["systemName:asc"]
+                },
+                "typeID": {
+                    "primary": false,
+                    "unique": false,
+                    "word": false,
+                    "fields": ["type:asc"]
+                }
+            },
+            "fields": [
+                {
+                    "name": "fieldNum",
+                    "ablType": "INTEGER",
+                    "extent": null
+                },
+                {
+                    "name": "sourceName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "sourcePath",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "line",
+                    "ablType": "INTEGER",
+                    "extent": null
+                },
+                {
+                    "name": "type",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "info",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "compileUnit",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "fileName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                }
+            ]
+        }},
+        "dsError": {"ttError": {
+            "trackChanges": true,
+            "indexes": {"id": {
+                "primary": true,
+                "unique": true,
+                "word": false,
+                "fields": ["id:asc"]
+            }},
+            "fields": [
+                {
+                    "name": "filePath",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "systemName",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "errorMessage",
+                    "ablType": "CHARACTER",
+                    "extent": null
+                },
+                {
+                    "name": "id",
+                    "ablType": "INT64",
+                    "extent": null
+                }
+            ]
+        }}
+    }
+}}}
